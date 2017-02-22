@@ -24,4 +24,6 @@ In this exercise you'll be writing tests for code that calls a server
 
 ## Tips
 
+- Look at the example in the Jest docs on how to mock a server response
 
+https://facebook.github.io/jest/docs/manual-mocks.html
