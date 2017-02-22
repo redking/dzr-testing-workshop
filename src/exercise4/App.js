@@ -1,21 +1,20 @@
-import React, {Component} from 'react';
-import http from 'http';
+import React, {Component, PropTypes} from 'react';
+
+// Modules
+import request from './request';
 
 // Components
 import AddApp from '../exercise2/App';
 
-// Go to the server and fetch the given URL
-function _request(url) {
-	return new Promise(resolve => {
-		http.get({path: url}, response => {
-			let data = '';
-			response.on('data', _data => data += _data);
-			response.on('end', () => resolve(data));
-		})
-	})
-}
-
 class App extends Component {
+
+	static propTypes = {
+		url: PropTypes.string
+	};
+
+	static defaultProps = {
+		url: 'http://localhost:8080'
+	};
 
 	constructor(props) {
 		super(props);
@@ -26,12 +25,16 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		_request('http://localhost:8080').then(user => {
+		request(this.props.url).then(user => {
 			user = JSON.parse(user);
 			this.setState({
 				userName: user.name
 			});
-		})
+		}, () => {
+			this.setState({
+				userName: 'Unknown'
+			});
+		});
 	}
 
 	render() {
