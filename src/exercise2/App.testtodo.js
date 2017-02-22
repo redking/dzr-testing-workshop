@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-addons-test-utils';
+
+// -- Mocks go here
+
+// Component under test
 import App from './App';
 
 describe('the 2nd exercise React App', function() {
@@ -9,7 +14,24 @@ describe('the 2nd exercise React App', function() {
 		ReactDOM.render(<App />, div);
 	});
 
-	it('adds the two input fields together on form submission');
+	it('adds the two input fields together on button click', () => {
+		const component = ReactTestUtils.renderIntoDocument(<App />);
+		const button = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'button');
+		const result = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'result');
+
+		// Result has zero as a default value
+		expect(result.value).toBe("0");
+
+		// Set values in the input fields
+		component.refs.num1.value = 10;
+		component.refs.num2.value = 10;
+
+		// Click the button
+		ReactTestUtils.Simulate.click(button);
+
+		// Check the value
+		expect(result.value).toBe("20");
+	});
 
 	it('should set the header color via the headerColor prop');
 
@@ -21,7 +43,7 @@ describe('the 2nd exercise React App', function() {
 
 	it('sets no class on the result field if the result is equal to zero');
 
-	it('should display an error message if the add function throws an error');
+	it('should set "err" in the result field if `add` throws an exception');
 
 });
 

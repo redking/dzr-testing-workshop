@@ -23,4 +23,8 @@ In this exercise you'll be writing tests for an asynchronous process.
 
 ## Tips
 
-
+- The component `src/exercise2/App.js` is now an external module and must be mocked
+- Use the matcher `toBeDefined` to check if an element returned from a find exists
+- Add `jest.useFakeTimers();` before you import the component to test, to mock all timers
+- Use `jest.runAllTimers();` in a test to advance any timers
+- Try running your test with and without the line `jest.runAllTimers();`

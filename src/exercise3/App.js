@@ -14,7 +14,7 @@ class App extends Component {
 	}
 
 	static defaultProps = {
-		colors: ['black']
+		colors: ['black', 'white']
 	};
 
 	render() {
@@ -22,7 +22,7 @@ class App extends Component {
 			<div>
 				<AddApp headerColor={this.props.colors[this.state.colorIndex]} exercise="3" />
 				<br />
-				<button type="button" onClick={e => this._changeColor()}>
+				<button type="button" className="cycle" onClick={e => this._changeColor()}>
 					Change header color
 				</button>
 			</div>
@@ -33,7 +33,7 @@ class App extends Component {
 
 	_changeColor() {
 		setTimeout(() => {
-			// TODO Cycle through the colors
+			// TODO Cycle through the colors here
 		}, 100);
 	}
 }

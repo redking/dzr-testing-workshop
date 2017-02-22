@@ -9,9 +9,7 @@ describe('the 2nd exercise React App', function() {
 		ReactDOM.render(<App />, div);
 	});
 
-	it('should display the Add app in the page');
-
-	it('should cycle through available headerColors on button click');
+	it('should display the username in the <footer>');
 
 });
 

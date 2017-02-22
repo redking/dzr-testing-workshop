@@ -20,8 +20,17 @@ In this exercise you'll be writing tests for a simple React component.
 
 - Launch Jest with the command `npm test`.
 - Open the file `src/exercise2/App.test.js` and implement the empty tests.
+- The `add.js` module from the previous exercise is an external module that must be mocked
 - Some of the tests should fail. Modify `exercise2/App.js` to pass the tests
 
 ## Tips
 
-
+- Use `ReactTestUtils.renderIntoDocument` to render your component in a test
+- Use `jest.mock` to mock an external module
+- Use `ReactTestUtils.findRenderedDOMComponentWithClass` to find a single node by classname
+- Use `ReactTestUtils.findRenderedDOMComponentWithTag` to find a single node by tag name
+- You can inspect props or state on the object returns by `renderIntoDocument`
+- You can inspect attributes using `getAttribute` on the object returned by any of the find methods
+- Use the matcher `toContain` to test that a string or array contains something e.g. `expect('foo bar').toContain('foo')`
+- You can negate a matcher with `not` e.g. `expect('bar').not.toContain('foo')`
+- It's ok to copy and paste code between tests such that they differ only slightly

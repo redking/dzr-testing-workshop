@@ -24,6 +24,7 @@ class App extends Component {
 	render() {
 		const {result} = this.state;
 		const resultClasses = classnames({
+			result: true,
 			positive: result > 0,
 			negative: result < 0
 		});
@@ -32,24 +33,22 @@ class App extends Component {
 			<div>
 				<div className="App-header" style={{backgroundColor: this.props.headerColor}}>
 					<img src={logo} className="App-logo" alt="logo" />
-					<h2>Jest Unit Testing - Exercise {this.props.exercise}</h2>
+					<h2>Jest Unit Testing - Exercise <span>{this.props.exercise}</span></h2>
 				</div>
 				<br />
-				<form onSubmit={e => this._add(e)}>
-					<label htmlFor="num1">
-						Number 1
-					</label>
-					<input type="text" id="num1" ref="num1" /><br />
-					<label htmlFor="num2">
-						Number 2
-					</label>
-					<input type="text" id="num2" ref="num2" /><br />
-					<label htmlFor="result">
-						Result
-					</label>
-					<input type="text" disabled="disabled" className={resultClasses} value={this.state.result} /><br />
-					<button type="submit">Add</button>
-				</form>
+				<label htmlFor="num1">
+					Number 1
+				</label>
+				<input type="text" id="num1" ref="num1" /><br />
+				<label htmlFor="num2">
+					Number 2
+				</label>
+				<input type="text" id="num2" ref="num2" /><br />
+				<label htmlFor="result">
+					Result
+				</label>
+				<input type="text" disabled="disabled" className={resultClasses} value={this.state.result} /><br />
+				<button type="button" onClick={e => this._add(e)}>Add</button>
 			</div>
 		);
 	}
