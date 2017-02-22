@@ -29,36 +29,32 @@ In this exercise you'll be writing tests for code that calls a server
 https://facebook.github.io/jest/docs/tutorial-async.html
 
 - We'll be writing a manual mock for `request.js` this time, which will be stored in the `__mocks__` directory
-- If you need to wait on an asynchronous process other than a timeout, pass `done` as an argument to your test and invoke this callback once the process has finished
+- As our code uses promises in `componentDidMount` we must return a `Promise` from our test - Jest will wait for the promise to resolve, matching
+the behaviour of our code
 
 For example
 
 ```
-it('should do something', done => {
-	someAsynchronousProcess(() => {
+it('should do something', () => {
+	return new Promise(resolve => resolve()).then(() => {
 		expect(something).toBe(something);
-		done();
 	});
 })
 
 ```
+- Count the number of times a mock is called by examining the `mock.calls` array on the mock object. You can access the mock object 
+by requiring the mocked module, as long as you do it *after* the call to `jest.mock`
 
-- If you have to wait for a lifecycle method or a Promise to resolve, use `process.nextTick` to wait for the next turn of the event loop
-
-For example
-
-```
-it('should do something', done => {
-	const component = ReactTestUtils.renderIntoDocument(<App />);
-	process.nextTick(() => {
-		expect(something).toBe(something);
-		done();
-	});
-})
+For example, using CommonJS syntax:
 
 ```
+var module = require('./path/to/module'); // This will return the original module
 
+jest.mock('./path/to/module');
+
+module = require('./path/to/module'); // This would return the mocked module
+```
+
+- Don't forget to reset the test environment before each test using `beforeEach`. 
 - Close the `node server.js` console and re-run the test - the test will pass as no attempt is made to contact the real server
 - Close the `node server.js` console and comment out the `jest.mock('./request') line. Re-run the test & note how the test fails as a real request is performed
-- 
- 

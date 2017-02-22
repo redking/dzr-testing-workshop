@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 
 // Modules
 import request from './request';
+import tracking from './tracking';
 
 // Components
 import AddApp from '../exercise2/App';
@@ -25,8 +26,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		tracking('Request');
 		request(this.props.url).then(user => {
 			user = JSON.parse(user);
+			tracking('Success');
 			this.setState({
 				userName: user.name
 			});
