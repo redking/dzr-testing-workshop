@@ -58,7 +58,8 @@ it('should do something', done => {
 
 ```
 
+- Count the number of times a mock is called by examining the `mock.calls` array on the mock object
+- Don't forget to reset the test environment before each test using `beforeEach`
 - Close the `node server.js` console and re-run the test - the test will pass as no attempt is made to contact the real server
 - Close the `node server.js` console and comment out the `jest.mock('./request') line. Re-run the test & note how the test fails as a real request is performed
-- 
  
