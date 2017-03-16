@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 
-// -- Mocks go here
+// -- Mocks go here.
 
 // Component under test
 import App from './App';

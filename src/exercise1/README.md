@@ -6,7 +6,7 @@ When you run `npm start` you'll see a simple React app for adding two numbers to
 
 ## Task
 
-In this exercise you'll be writing tests for a simple JavaScript module. We won't be testing the React component in this exercise.
+In this exercise you'll be writing tests for a simple JavaScript module. We won't be testing the React component for the moment.
 
 - Launch Jest with the command `npm test`.
 - Open the file `src/exercise1/add.test.js` and implement the empty tests.
@@ -16,6 +16,6 @@ In this exercise you'll be writing tests for a simple JavaScript module. We won'
 
 - Use `expect()` and a matcher to describe expectations e.g. `expect(add(1, 0)).toBe(1)`
 - Use the matcher `toThrow` to check an error condition.
-- If you want to disable a test, change `it()` to `xit()`
+- If you want to disable a test temporarily, change `it()` to `xit()`
 - If you want to disable a test suite, change `describe()` to `xdescribe()`
 - Try to test for all reasonable inputs

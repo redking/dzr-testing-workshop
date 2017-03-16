@@ -4,7 +4,7 @@
 
 When you run `npm start` you'll see the same App from exercise 1, with the following differences
 
-1. The React component uses state to populate the result field
+1. The React component uses its state to populate the result field
 2. If the result is greater than zero, the field is colored green. A negative result
 will turn the field red. A zero result will leave the input field at the default background color.
 

@@ -5,10 +5,7 @@
 1. Run `npm install`
 2. Launch the app with `npm start`
 3. Launch the tests with `npm test`
-
-## Changing exercise
-
-Modify the import at the top of `src/index.js`.
+4. Being by opening the README.md in the `exercise1` folder 
 
 ## Links
 

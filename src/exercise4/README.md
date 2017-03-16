@@ -2,10 +2,7 @@
 
 ## Description
 
-In this exercise, we wrap the app from exercise 2, adding a button that changes
-the color of the site header.
-
-This change occurs upon click with a delay of 100ms i.e. it is asynchronous
+In this exercise, we add a footer to the bottom of the app that shows the current "user", fetched from a simple Express server.
 
 ## Prerequisites
 
@@ -29,6 +26,7 @@ In this exercise you'll be writing tests for code that calls a server
 https://facebook.github.io/jest/docs/tutorial-async.html
 
 - We'll be writing a manual mock for `request.js` this time, which will be stored in the `__mocks__` directory
+- `tracking` is an externals module that can be mocked in the normal manner
 - As our code uses promises in `componentDidMount` we must return a `Promise` from our test - Jest will wait for the promise to resolve, matching
 the behaviour of our code
 
